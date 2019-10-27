@@ -1,6 +1,6 @@
 package curp
 
-func Generate(firstName string, middleName string, paternalName string, maternalName string)string{
+func Generate(firstName string, middleName string, paternalName string, maternalName string, yearOfBirth string, monthOfBirth string, dayOfBirth string)string{
 
 	//Step 1: Get First Letter and First Vowel from the Patermal Name
 	//Step 2: Second letter is the first vowel from the paternal name
@@ -10,9 +10,15 @@ func Generate(firstName string, middleName string, paternalName string, maternal
 	secondLetter := IsVoewel(paternalName)
 	thirdLetter := string(maternalName[0])
 	fourthLetter := string(firstName[0])
+	alphabeticCode := firstLetter + secondLetter + thirdLetter + fourthLetter
 
-	generatedCurp := firstLetter+secondLetter+thirdLetter+fourthLetter
+	//For the Digit Codes, we take the las 2 digits of the Year of Birth
+	// The month of birth in digit code
+	//the day of birth in digit code
+	year := string(yearOfBirth[2])+string(yearOfBirth[3])
+	birthCode := year + monthOfBirth + dayOfBirth
 
+	generatedCurp := alphabeticCode+birthCode
 	return generatedCurp
 }
 
