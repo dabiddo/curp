@@ -7,7 +7,7 @@ func Generate(firstName string, middleName string, paternalName string, maternal
 	//Step 3: Third letter is the first letter from maternal name
 	//Step 4: Fourth letter is the first letter from the first name
 	firstLetter := string(paternalName[0])
-	secondLetter := IsVoewel(paternalName)
+	secondLetter := firstVowel(paternalName)
 	thirdLetter := string(maternalName[0])
 	fourthLetter := string(firstName[0])
 	alphabeticCode := firstLetter + secondLetter + thirdLetter + fourthLetter
@@ -22,7 +22,10 @@ func Generate(firstName string, middleName string, paternalName string, maternal
 	return generatedCurp
 }
 
-func IsVoewel(name string)string  {
+/**
+Returns the first Vowel from the name
+ */
+func firstVowel(name string)string  {
 
 	var vowelList = []rune{'A','E','I','O','U'}
 	var vowel = ""
@@ -30,7 +33,6 @@ func IsVoewel(name string)string  {
 
 		for z,_ := range vowelList{
 			if string(name[i]) == string(vowelList[z]) {
-				//println(string(name[i]))
 				return string(name[i])
 			}
 		}

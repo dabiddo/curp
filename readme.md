@@ -1,4 +1,4 @@
-###Golang Mexico CURP
+### Golang Mexico CURP
 
 This is an implementation of the Mexican Curp in Golang
 

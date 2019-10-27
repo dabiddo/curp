@@ -13,7 +13,7 @@ func main() {
 	fmt.Println("Maternal Last Name:")
 
 	//once we have all parameter, generate CURP
-	myCurp := curp.Generate("LUIS","RAUL","BELLO","MENA") //TODO:get inputs from console
-	//curp.IsVoewel("BELLO")
+	myCurp := curp.Generate("LUIS","RAUL","BELLO","MENA", "1992", "03","13") //TODO:get inputs from console
+
 	println(myCurp)
 }
