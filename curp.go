@@ -7,7 +7,6 @@ import (
 
 const (
 	layoutISO = "2006-01-02"
-	layOutYear = "06"
 )
 
 func Generate(firstName string, middleName string, paternalName string, maternalName string, dob string, gender string, myState string)string{
@@ -29,7 +28,8 @@ func Generate(firstName string, middleName string, paternalName string, maternal
 
 	year:=  strconv.Itoa(dateString.Year())
 
-	intMonth,month := int(dateString.Month()), ""
+	intMonth := int(dateString.Month())
+	var month string
 
 	if intMonth < 10 {
 		month = "0" + strconv.Itoa(intMonth)
@@ -68,6 +68,9 @@ func firstVowel(name string)string  {
 	return vowel
 }
 
+/**
+From the given state, look for the State Code string to return it.
+ */
 func bornState(myState string)string  {
 	var states  = map[string]string{
 		"BC":"BAJA CALIFORNIA",
@@ -80,6 +83,6 @@ func bornState(myState string)string  {
 			return k
 		}
 	}
-	return "NE" //If its not any known state, we have to assume this person was born in another country
-
+	//If its not any known state, we have to assume this person was born in another country
+	return "NE"
 }
