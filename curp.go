@@ -28,16 +28,21 @@ func Generate(firstName string, middleName string, paternalName string, maternal
 
 	year:=  strconv.Itoa(dateString.Year())
 
-	intMonth := int(dateString.Month())
-	var month string
-
+	intMonth,month := int(dateString.Month()),"0"
+	// leading 0
 	if intMonth < 10 {
-		month = "0" + strconv.Itoa(intMonth)
+		month += strconv.Itoa(intMonth)
 	}else {
 		month = strconv.Itoa(intMonth)
 	}
+	//leading 0
+	intDay, day := dateString.Day(), "0"
 
-	day := strconv.Itoa(dateString.Day())
+	if(intDay < 10 ){
+		day += strconv.Itoa(intDay)
+	}else {
+		day = strconv.Itoa(intDay)
+	}
 
 	birthCode := year[2:4] + month + day
 
